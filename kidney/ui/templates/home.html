@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detection</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}" />
+</head>
+
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+  <ul class=flashes>
+  {% for message in messages %}
+    <li>{{ message }}</li>
+  {% endfor %}
+  </ul>
+{% endif %}
+{% endwith %}
+
+<body>
+  <a href="http://127.0.0.1:5000/"><input type="button" value="Logout" style="height: 30px;
+    width: 50px;
+    margin: 10px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    margin-left: 1300px;
+    color: white;
+    background-color: red;"></a>
+    <div class="main__container">
+        <h1>Kidney Disease Detection</h1>
+        <div class="center">
+            <label for="">Age</label>
+            <input placeholder="in years" type="text" name="age" id="age" />
+            <label for="">Blood Pressure</label>
+            <input placeholder="(60-180) in mm/Hg" type="text" id="blood_pressure" name="blood_pressure" />
+            <label for="">albumin</label>
+            <input placeholder="(0,1,2,3,4,5)" type="text" id="albumin" name="albumin" />
+            <label for="">blood glucose random</label>
+            <input placeholder="(20-50) in mgs/dl" type="text" id="blood_glucose_random" name="blood_glucose_random" />
+            <label for="">blood urea</label>
+            <input placeholder="(2.000000-5.000000) in mgs/dl" type="text" name="blood_urea" id="blood_urea" />
+            <label for="">serum creatinine</label>
+            <input placeholder="(0.000000-5.000000) in mgs/dl" type="text" name="serum_creatinine" id="serum_creatinine" />
+            <label for="">Pottasium</label>
+            <input placeholder="(1.000000-3.000000) in mEq/L" type="text" name="potassium" id="potassium" />
+            <label for="">haemoglobin</label>
+            <input placeholder="(5.0-16.0) in gms" type="text" name="haemoglobin" id="haemoglobin" />
+            <label for="">packed cell volume</label>
+            <input placeholder="(5-60)" type="text" name="packed_cell_volume" id="packed_cell_volume" />
+            <label for="">Red blood cell count</label>
+            <input placeholder="(3.0-7.0) in millions/cmm" type="text" name="red_blood_cell_count" id="red_blood_cell_count" />
+            <label for="">Hypertension</label>
+            <input placeholder="1 or 0" type="text" name="hypertension" id="hypertension" />
+            <label for="">Diabetes melitus</label>
+            <input placeholder="1 or 0" type="text" name="diabetes_mellitus" id="diabetes_mellitus" />
+            <label for="">Appetite</label>
+            <input placeholder="1 or 0" type="text" name="appetite" id="appetite" />
+            <label for="">Anemia</label>
+            <input placeholder="1 or 0" type="text" name="aanemia" id="aanemia" />
+            <button onclick="dataSend('/send')">Submit</button>
+        </div>
+    </div>
+</body>
+<script src="{{url_for('static', filename='js/main.js')}}"></script>
+<script src="{{url_for('static', filename='js/post.js')}}"></script>
+
+
+</html>
